@@ -76,7 +76,7 @@ private static int RPCRequest (String mathMethod, Object...params) throws Except
         if (result.length == 1) {
             return Integer.valueOf((String)result[0]);
         } else {
-            throw new ArithmeticException(result[0] + ", " + result[1]);
+            throw new Exception(result[0] + ", " + result[1]);
         }
         
     } catch (Exception ex) {
@@ -91,6 +91,7 @@ private static int RPCRequest (String mathMethod, Object...params) throws Except
             ByteArrayInputStream bais = new ByteArrayInputStream(body.getBytes());
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document doc = db.parse(bais);
+            
             doc.getDocumentElement().normalize();
 
             if (doc.getDocumentElement().getElementsByTagName("fault").getLength() == 0) {
