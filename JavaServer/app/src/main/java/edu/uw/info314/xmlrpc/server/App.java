@@ -12,11 +12,20 @@ class Call {
 
 public class App {
     public static final Logger LOG = Logger.getLogger(App.class.getCanonicalName());
+    private static final int PORT = 8080;
+
 
     public static void main(String[] args) {
+        portNumber(PORT);
         LOG.info("Starting up on port 4567");
+    }
+
+
+    
+}
 
         // This is the mapping for POST requests to "/RPC";
+
         // this is where you will want to handle incoming XML-RPC requests
         post("/RPC", (request, response) -> { response.status(500); return "TBD"; });
 
@@ -24,5 +33,3 @@ public class App {
         // put() for PUT, delete() for DELETE. There's also an exception()
         // for dealing with exceptions thrown from handlers.
         // All of this is documented on the SparkJava website (https://sparkjava.com/).
-    }
-}
